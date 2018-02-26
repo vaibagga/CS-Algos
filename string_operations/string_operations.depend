@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1509789245 source:c:\users\lenovo\desktop\docs\data structures\string_operations\main.cpp
+	<iostream>
+	<string.h>
+	<string>
+

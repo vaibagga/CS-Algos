@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1510000190 source:c:\users\lenovo\desktop\docs\data structures\breadth_first_graph\main.cpp
+	<iostream>
+	<queue>
+
