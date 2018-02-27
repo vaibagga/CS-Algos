@@ -3,13 +3,16 @@
 
 using namespace std;
 
+int A[MAXSIZE][MAXSIZE];
+int B[MAXSIZE][MAXSIZE];
 int prod[MAXSIZE][MAXSIZE];
 
-bool IsPossible(int A[][MAXSIZE],int m1, int n1, int B[MAXSIZE][MAXSIZE], int m2, int n2){
+bool IsPossible(int m1, int n1,int m2, int n2){
     if (n1 != m2)
         return false;
     for (int i = 0; i < m1; i++){
         for (int j = 0; j < n2; j++){
+            prod[i][j] = 0;
             for (int k = 0; k < n1; k++)
                 prod[i][j] += A[i][k] * B[k][j];
         }
@@ -20,11 +23,6 @@ bool IsPossible(int A[][MAXSIZE],int m1, int n1, int B[MAXSIZE][MAXSIZE], int m2
 int main(){
     int m1, n1, m2, n2;
     cin >> m1 >> n1  >> m2 >> n2;
-    for (int i = 0; i < MAXSIZE; i++){
-        for (int j = 0; j < MAXSIZE; j++)
-            prod[i][j] = 0;
-    }
-    int A[m1][n1], B[m2][n2];
     for (int i = 0; i < m1; i++){
         for (int j = 0; j < n1; j++)
             cin >> A[i][j];
@@ -33,7 +31,7 @@ int main(){
         for (int j = 0; j < n2; j++)
             cin >> B[i][j];
     }
-    if (IsPossible(A,m1,n1,B,m2,n2)){
+    if (IsPossible(m1,n1,m2,n2)){
         for (int i = 0; i < m1; i++){
             for (int j = 0; j < n2; j++)
                 cout << prod[i][j] << " ";
