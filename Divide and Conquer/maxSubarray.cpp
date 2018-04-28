@@ -10,13 +10,15 @@ int MaxSubarray(int A[], int N){
     int left_max = MaxSubarray(A, mid);
     int right_max = MaxSubarray(A + mid, N - mid);
     int left_sum = INT_MIN, right_sum = INT_MIN, sum = 0;
-    for (int i = 0; i < mid; i++)
+    for (int i = 0; i < mid; i++){
         sum += A[i];
-    left_sum = max(sum, left_sum);
+        left_sum = max(sum, left_sum);
+    }
     sum = 0;
-    for (int i = mid; i < N; i++)
+    for (int i = mid + 1; i < N; i++){
         sum += A[i];
-    right_sum = max(sum, right_sum);
+        right_sum = max(sum, right_sum);
+    }
     int ans = max(left_max, right_max);
     return max(ans, left_sum + right_sum);
 }
